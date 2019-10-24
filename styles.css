@@ -5,27 +5,6 @@
   text-align: center;
   color: #f4df42;
 }
-.col
-{
-  text-align: center;
-  color: black;
-  padding-left: auto;
-  padding-right: auto;
-  font-size: 20px;
-  background-color: white;
-  border-radius: 15px;
-}
-
-.tab
-{
-  color: white;
-  background-color: inherit;
-  text-align: center;
-  float: left;padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-  width: 100%;
-}
 
 .row
 {
@@ -33,24 +12,28 @@
 
 }
 
-.col-3
+.btn btn-primary dropdown-toggle
 {
-  text-align: center;
-  float: left;
-}
 
-i {
-  border: solid white;
-  border-width: 0 5px 5px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }
 
 .prtIcon
 {
-  float:left;
-  height: 50px;
-  overflow: auto;
+
+}
+
+.dropdown-toggle
+{
+    width: 100%;
+}
+
+.dropdown-menu
+{
+  width: 100%;
+}
+
+.container
+{
+  margin-left: 10%;
+  margin-right: 10%;
 }
