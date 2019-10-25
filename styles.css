@@ -17,9 +17,12 @@
 
 }
 
-.prtIcon
+.dropdown
 {
-
+  position: static;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .dropdown-toggle
@@ -32,8 +35,8 @@
   width: 100%;
 }
 
-.container
+.dropdown-item
 {
-  margin-left: 10%;
-  margin-right: 10%;
+  text-align-last: center;
+  width:100%;
 }
