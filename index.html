@@ -14,27 +14,54 @@
     <title>P.R.T. Scanner</title>
   </head>
 
-  <body  style="background-color: #3e3c37";>
-      <!-- this is the header of the website. -->
-        <div class= "header">
-            <h1>P.R.T. Scanner</h1>
-        </div>
+  <body  style="background-color: white";>
+    <h1>PRT Scanner</h1>
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
+      <a href="#news">Stochastics (N/A)</a>
+      <a href="#contact">Contact (N/A)</a>
+      <a href="#about">About (N/A)</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
 
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Home
-          </button>
-          <div class="dropdown-menu" aria-labelledby="Home">
-            <a class="dropdown-item disabled" href="#">More Statistics (Coming soon!)</a>
-            <a class="dropdown-item disabled" href="#">More Statistics (Coming soon!)</a>
-            <a class="dropdown-item disabled" href="#">Contact Us (Coming soon!)</a>
-          </div>
-        </div>
+    <div class="PrtStatusBody" id="PrtStatusBody">
+      <h2>Current PRT Status</h2>
+      <p>
+        <span class="StationStatus" id="StationStatus">Beechurst Station: </span>
+          <span class="PRTRunning" id="PRTRunning">Running</span> <img class="PRTIcon" src="prt.png"/>
+        <br style="display=none"></br>
 
+        <span class="StationStatus" id="StationStatus">Evansdale Station: </span>
+          <span class="PRTRunning" id="PRTRunning">Running</span> <img class="PRTIcon" src="prt.png"/>
+        <br style="display=none"></br>
 
-    <container-fluid>
-      prt graphs
-    </container-fluid>
+        <span class="StationStatus" id="StationStatus">Enginnering Station: </span>
+          <span class="PRTRunning" id="PRTRunning">Running</span> <img class="PRTIcon" src="prt.png"/>
+        <br style="display=none"></br>
+
+        <span class="StationStatus" id="StationStatus">HSC Station: </span>
+          <span class="PRTRunning" id="PRTRunning">Running</span> <img class="PRTIcon" src="prt.png"/>
+        <br style="display=none"></br>
+
+        <span class="StationStatus" id="StationStatus">Walnut Station: </span>
+          <span class="PRTRunning" id="PRTRunning">Running</span> <img class="PRTIcon" src="prt.png"/>
+      </p>
+      <h2>Graphs</h2>
+      <p>Graph 1</p>
+      <p>Graph 2</p>
+      <p>Graph 3</p>
+    </div>
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
