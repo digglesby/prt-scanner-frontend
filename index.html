@@ -28,23 +28,23 @@
       <h2>Current PRT Status</h2>
       <p>
         <span class="StationStatus" id="StationStatus">Beechurst Station: </span>
-          <span class="PRTLoading_B" id="PRTLoading_B">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
+          <span class="PRTLoading_B" id="PRTLoading_B">Loading...</span> <img id="PRTIcon_B" src=""/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Evansdale Station: </span>
-          <span class="PRTLoading_Evan" id="PRTLoading_Evan">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
+          <span class="PRTLoading_Evan" id="PRTLoading_Evan">Loading...</span> <img id="PRTIcon_Evan" src=""/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Enginnering Station: </span>
-          <span class="PRTLoading_Eng" id="PRTLoading_Eng">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
+          <span class="PRTLoading_Eng" id="PRTLoading_Eng">Loading...</span> <img id="PRTIcon_Eng" src=""/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">HSC Station: </span>
-          <span class="PRTLoading_H" id="PRTLoading_H">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
+          <span class="PRTLoading_H" id="PRTLoading_H">Loading...</span> <img id="PRTIcon_H" src=""/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Walnut Station: </span>
-          <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
+          <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img id="PRTIcon_W" src=""/>
       </p>
       <h2>Graphs</h2>
       <p>Graph 1</p>
@@ -67,40 +67,53 @@
     function prtStatusFunction()
     {
       let listOfStations = ["PRTLoading_B", "PRTLoading_Evan", "PRTLoading_Eng", "PRTLoading_H", "PRTLoading_W"];
-      if (false)
+      let listStationIcons = ["PRTIcon_B", "PRTIcon_Evan", "PRTIcon_Eng", "PRTIcon_H", "PRTIcon_W"];
+
+      if (true)
       {
         document.getElementById(listOfStations[0]).innerHTML = "Running";
         document.getElementById(listOfStations[0]).className = 'PRTRunning';
+        document.getElementById(listStationIcons[0]).src = "prtRunning.ico";
+
 
         document.getElementById(listOfStations[1]).innerHTML = "Running";
         document.getElementById(listOfStations[1]).className = 'PRTRunning';
+        document.getElementById(listStationIcons[1]).src = "prtRunning.ico";
 
         document.getElementById(listOfStations[2]).innerHTML = "Running";
         document.getElementById(listOfStations[2]).className = 'PRTRunning';
+        document.getElementById(listStationIcons[2]).src = "prtRunning.ico";
 
         document.getElementById(listOfStations[3]).innerHTML = "Running";
         document.getElementById(listOfStations[3]).className = 'PRTRunning';
+        document.getElementById(listStationIcons[3]).src = "prtRunning.ico";
 
         document.getElementById(listOfStations[4]).innerHTML = "Running";
         document.getElementById(listOfStations[4]).className = 'PRTRunning';
+        document.getElementById(listStationIcons[4]).src = "prtRunning.ico";
+
       }
       else
       {
         document.getElementById(listOfStations[0]).innerHTML = "Down";
         document.getElementById(listOfStations[0]).className = 'PRTDown';
-        document.getElementById("PRTIcon").src = "PRTDown.ico";
+        document.getElementById(listStationIcons[0]).src = "prtDown.ico";
 
         document.getElementById(listOfStations[1]).innerHTML = "Down";
         document.getElementById(listOfStations[1]).className = 'PRTDown';
+        document.getElementById(listStationIcons[1]).src = "prtDown.ico";
 
         document.getElementById(listOfStations[2]).innerHTML = "Down";
         document.getElementById(listOfStations[2]).className = 'PRTDown';
+        document.getElementById(listStationIcons[2]).src = "prtDown.ico";
 
         document.getElementById(listOfStations[3]).innerHTML = "Down";
         document.getElementById(listOfStations[3]).className = 'PRTDown';
+        document.getElementById(listStationIcons[3]).src = "prtDown.ico";
 
         document.getElementById(listOfStations[4]).innerHTML = "Down";
         document.getElementById(listOfStations[4]).className = 'PRTDown';
+        document.getElementById(listStationIcons[4]).src = "prtDown.ico";
       }
 
     }

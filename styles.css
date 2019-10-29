@@ -22,8 +22,6 @@ p
   text-align: center;
 }
 
-
-
 .topnav {
   overflow: hidden;
   background-color: #272727;
@@ -49,12 +47,6 @@ p
 .topnav .icon {
   display: none;
   padding-left: 100%;
-}
-
-.PRTIcon
-{
-  width: 50px;
-  height: auto;
 }
 
 .dropdown {
@@ -146,6 +138,12 @@ PrtStatusBody
 {
     font-weight: bold;
     text-align: center;
+}
+
+.PRTIcon
+{
+  width: 50px;
+  height: auto;
 }
 
 .PRTRunning
