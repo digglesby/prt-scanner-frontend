@@ -153,3 +153,9 @@ PrtStatusBody
   color: #14A76C;
   font-weight: bold;
 }
+
+.PRTLoading_B, .PRTLoading_H, .PRTLoading_W, .PRTLoading_Eng, .PRTLoading_Evan
+{
+  color: #FFE400;
+  font-weight: bold;
+}
