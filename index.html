@@ -28,23 +28,23 @@
       <h2>Current PRT Status</h2>
       <p>
         <span class="StationStatus" id="StationStatus">Beechurst Station: </span>
-          <span class="PRTLoading_B" id="PRTLoading_B">Loading...</span> <img class="PRTIcon" src="prt.png"/>
+          <span class="PRTLoading_B" id="PRTLoading_B">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Evansdale Station: </span>
-          <span class="PRTLoading_Evan" id="PRTLoading_Evan">Loading...</span> <img class="PRTIcon" src="prt.png"/>
+          <span class="PRTLoading_Evan" id="PRTLoading_Evan">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Enginnering Station: </span>
-          <span class="PRTLoading_Eng" id="PRTLoading_Eng">Loading...</span> <img class="PRTIcon" src="prt.png"/>
+          <span class="PRTLoading_Eng" id="PRTLoading_Eng">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">HSC Station: </span>
-          <span class="PRTLoading_H" id="PRTLoading_H">Loading...</span> <img class="PRTIcon" src="prt.png"/>
+          <span class="PRTLoading_H" id="PRTLoading_H">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
         <br style="display=none"></br>
 
         <span class="StationStatus" id="StationStatus">Walnut Station: </span>
-          <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img class="PRTIcon" src="prt.png"/>
+          <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img class="PRTIcon" src="PRTRunning.ico"/>
       </p>
       <h2>Graphs</h2>
       <p>Graph 1</p>
@@ -67,7 +67,7 @@
     function prtStatusFunction()
     {
       let listOfStations = ["PRTLoading_B", "PRTLoading_Evan", "PRTLoading_Eng", "PRTLoading_H", "PRTLoading_W"];
-      if (false)
+      if (true)
       {
         document.getElementById(listOfStations[0]).innerHTML = "Running";
         document.getElementById(listOfStations[1]).innerHTML = "Running";
