@@ -67,21 +67,40 @@
     function prtStatusFunction()
     {
       let listOfStations = ["PRTLoading_B", "PRTLoading_Evan", "PRTLoading_Eng", "PRTLoading_H", "PRTLoading_W"];
-      if (true)
+      if (false)
       {
         document.getElementById(listOfStations[0]).innerHTML = "Running";
+        document.getElementById(listOfStations[0]).className = 'PRTRunning';
+
         document.getElementById(listOfStations[1]).innerHTML = "Running";
+        document.getElementById(listOfStations[1]).className = 'PRTRunning';
+
         document.getElementById(listOfStations[2]).innerHTML = "Running";
+        document.getElementById(listOfStations[2]).className = 'PRTRunning';
+
         document.getElementById(listOfStations[3]).innerHTML = "Running";
+        document.getElementById(listOfStations[3]).className = 'PRTRunning';
+
         document.getElementById(listOfStations[4]).innerHTML = "Running";
+        document.getElementById(listOfStations[4]).className = 'PRTRunning';
       }
       else
       {
         document.getElementById(listOfStations[0]).innerHTML = "Down";
+        document.getElementById(listOfStations[0]).className = 'PRTDown';
+        document.getElementById("PRTIcon").src = "PRTDown.ico";
+
         document.getElementById(listOfStations[1]).innerHTML = "Down";
+        document.getElementById(listOfStations[1]).className = 'PRTDown';
+
         document.getElementById(listOfStations[2]).innerHTML = "Down";
+        document.getElementById(listOfStations[2]).className = 'PRTDown';
+
         document.getElementById(listOfStations[3]).innerHTML = "Down";
+        document.getElementById(listOfStations[3]).className = 'PRTDown';
+
         document.getElementById(listOfStations[4]).innerHTML = "Down";
+        document.getElementById(listOfStations[4]).className = 'PRTDown';
       }
 
     }

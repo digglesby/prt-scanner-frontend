@@ -154,6 +154,12 @@ PrtStatusBody
   font-weight: bold;
 }
 
+.PRTDown
+{
+  color: red;
+  font-weight: bold;
+}
+
 .PRTLoading_B, .PRTLoading_H, .PRTLoading_W, .PRTLoading_Eng, .PRTLoading_Evan
 {
   color: #FFE400;
