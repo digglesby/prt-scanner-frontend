@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="functions" href="functions.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="prtdata" href="https://watjl80v2k.execute-api.us-east-1.amazonaws.com/Test1">
 
@@ -53,6 +54,30 @@
     </div>
 
     <script>
+    $.ajax(
+    {
+      type: "GET",
+      url: "https://watjl80v2k.execute-api.us-east-1.amazonaws.com/Test1",
+      data: "",
+      crossDomain: true,
+      dataType: 'json',
+      success: function(data, status)
+      {
+        console.log("Status: "+ status + "\n\nData:");
+        console.log(JSON.parse(data));
+
+        // for(var i = 0; i < data.length; i++)
+        // {
+        //   console.log(JSON.parse(data[i]));
+        // }
+
+      },
+      error: function(response)
+      {
+        console.log(response);
+      },
+    });
+
     function myFunction()
     {
       var x = document.getElementById("myTopnav");
