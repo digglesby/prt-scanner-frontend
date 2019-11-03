@@ -64,12 +64,29 @@
       success: function(data, status)
       {
         console.log("Status: "+ status + "\n\nData:");
-        console.log(JSON.parse(data));
+        // console.log(data);
 
-        // for(var i = 0; i < data.length; i++)
-        // {
-        //   console.log(JSON.parse(data[i]));
-        // }
+        for(var i = 0; i < data.length; i++)
+        {
+          // Pulls the date correctly.
+          if (i % 2 == 0)
+          {
+            console.log(data[i]);
+          }
+          else if (data[i].length != 0)
+          {
+            for (var a = 0; a < data[i].length; a++)
+            {
+              // Date, IsDown, Weather, Temperature (json Calls)
+              console.log("Time: " + data[i][a].Date);
+              console.log("IsDown: " + data[i][a].IsDown);
+              console.log("Weather: " + data[i][a].Weather);
+              console.log("Temperature: " + data[i][a].Temperature);
+              console.log("\n");
+            }
+            console.log("\n");
+          }
+        }
 
       },
       error: function(response)
