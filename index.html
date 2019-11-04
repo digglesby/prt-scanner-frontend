@@ -14,9 +14,9 @@
 
     <title>P.R.T. Scanner</title>
   </head>
-
-  <body  style="background-color: white"; onLoad="prtStatusFunction();">
-    <h1>PRT Scanner</h1>
+<!-- onLoad="prtStatusFunction();" -->
+  <body  style="background-color: white";>
+    <h1>PRT Scanner (DEV)</h1>
     <div class="topnav" id="myTopnav">
       <a href="#home" class="active">Home</a>
       <a href="#news">Stochastics (N/A)</a>
@@ -63,36 +63,36 @@
       dataType: 'json',
       success: function(data, status)
       {
-        console.log("Status: "+ status + "\n\nData:");
-        // console.log(data);
 
-        for(var i = 0; i < data.length; i++)
+        console.log("Status: "+ status + " connecting to apigateway." + "\n\nData:");
+
+        // This for loop looks at the first array and outputs the first element in that array.
+        // If it contains "Mention/Error" or "retweet" then it will output null.
+        // We will change the status of all the stations to "closed" if it is null.
+        var currentStatus = "null";
+        if (data[1].length != 0)
         {
-          // Pulls the date correctly.
-          if (i % 2 == 0)
+          for (var a = 0; a < data[1].length; a++)
           {
-            console.log(data[i]);
-          }
-          else if (data[i].length != 0)
-          {
-            for (var a = 0; a < data[i].length; a++)
+            console.log(data[1][a]);
+            if (data[1][a].IsDown != "Mention/Error" || data[1][a].IsDown != "retweet")
             {
-              // Date, IsDown, Weather, Temperature (json Calls)
-              console.log("Time: " + data[i][a].Date);
-              console.log("IsDown: " + data[i][a].IsDown);
-              console.log("Weather: " + data[i][a].Weather);
-              console.log("Temperature: " + data[i][a].Temperature);
-              console.log("\n");
+              currentStatus = data[1][a].IsDown;
+              break;
             }
-            console.log("\n");
           }
         }
 
+        // First date with elements in the array.
+        console.log("Current Status of the PRT: " + currentStatus);
+        prtStatusFunction(currentStatus);
       },
+
       error: function(response)
       {
         console.log(response);
       },
+
     });
 
     function myFunction()
@@ -106,36 +106,41 @@
       }
     }
 
-    function prtStatusFunction()
+    function prtStatusFunction(currentStatus)
     {
       let listOfStations = ["PRTLoading_B", "PRTLoading_Evan", "PRTLoading_Eng", "PRTLoading_H", "PRTLoading_W"];
       let listStationIcons = ["PRTIcon_B", "PRTIcon_Evan", "PRTIcon_Eng", "PRTIcon_H", "PRTIcon_W"];
 
-      if (true)
+      if (currentStatus != "null")
       {
+        //PRTLoading_B
         document.getElementById(listOfStations[0]).innerHTML = "Running";
         document.getElementById(listOfStations[0]).className = 'PRTRunning';
         document.getElementById(listStationIcons[0]).src = "prtRunning.ico";
 
-
+        //PRTLoading_Evan
         document.getElementById(listOfStations[1]).innerHTML = "Running";
         document.getElementById(listOfStations[1]).className = 'PRTRunning';
         document.getElementById(listStationIcons[1]).src = "prtRunning.ico";
 
+        //PRTLoading_Eng
         document.getElementById(listOfStations[2]).innerHTML = "Running";
         document.getElementById(listOfStations[2]).className = 'PRTRunning';
         document.getElementById(listStationIcons[2]).src = "prtRunning.ico";
 
+        //PRTLoading_H
         document.getElementById(listOfStations[3]).innerHTML = "Running";
         document.getElementById(listOfStations[3]).className = 'PRTRunning';
         document.getElementById(listStationIcons[3]).src = "prtRunning.ico";
 
+        //PRTLoading_W
         document.getElementById(listOfStations[4]).innerHTML = "Running";
         document.getElementById(listOfStations[4]).className = 'PRTRunning';
         document.getElementById(listStationIcons[4]).src = "prtRunning.ico";
 
       }
-      else
+
+      else if (currentStatus != "null")
       {
         document.getElementById(listOfStations[0]).innerHTML = "Down";
         document.getElementById(listOfStations[0]).className = 'PRTDown';
@@ -156,6 +161,24 @@
         document.getElementById(listOfStations[4]).innerHTML = "Down";
         document.getElementById(listOfStations[4]).className = 'PRTDown';
         document.getElementById(listStationIcons[4]).src = "prtDown.ico";
+      }
+
+      else
+      {
+        document.getElementById(listOfStations[0]).innerHTML = "Closed";
+        document.getElementById(listOfStations[0]).className = 'PRTDown';
+
+        document.getElementById(listOfStations[1]).innerHTML = "Closed";
+        document.getElementById(listOfStations[1]).className = 'PRTDown';
+
+        document.getElementById(listOfStations[2]).innerHTML = "Closed";
+        document.getElementById(listOfStations[2]).className = 'PRTDown';
+
+        document.getElementById(listOfStations[3]).innerHTML = "Closed";
+        document.getElementById(listOfStations[3]).className = 'PRTDown';
+
+        document.getElementById(listOfStations[4]).innerHTML = "Closed";
+        document.getElementById(listOfStations[4]).className = 'PRTDown';
       }
 
     }
