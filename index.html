@@ -113,54 +113,95 @@
 
       if (currentStatus != "null")
       {
+
         //PRTLoading_B
-        document.getElementById(listOfStations[0]).innerHTML = "Running";
-        document.getElementById(listOfStations[0]).className = 'PRTRunning';
-        document.getElementById(listStationIcons[0]).src = "prtRunning.ico";
+        if (currentStatus.search("Beechurst") == -1)
+        {
+          document.getElementById(listOfStations[0]).innerHTML = "Running";
+          document.getElementById(listOfStations[0]).className = 'PRTRunning';
+          document.getElementById(listStationIcons[0]).src = "prtRunning.ico";
+        }
+        else
+        {
+          document.getElementById(listOfStations[0]).innerHTML = "Down";
+          document.getElementById(listOfStations[0]).className = 'PRTDown';
+          document.getElementById(listStationIcons[0]).src = "prtDown.ico";
+        }
 
         //PRTLoading_Evan
-        document.getElementById(listOfStations[1]).innerHTML = "Running";
-        document.getElementById(listOfStations[1]).className = 'PRTRunning';
-        document.getElementById(listStationIcons[1]).src = "prtRunning.ico";
+        if (currentStatus.search("Towers") == -1)
+        {
+          document.getElementById(listOfStations[1]).innerHTML = "Running";
+          document.getElementById(listOfStations[1]).className = 'PRTRunning';
+          document.getElementById(listStationIcons[1]).src = "prtRunning.ico";
+        }
+        else
+        {
+          document.getElementById(listOfStations[1]).innerHTML = "Down";
+          document.getElementById(listOfStations[1]).className = 'PRTDown';
+          document.getElementById(listStationIcons[1]).src = "prtDown.ico";
+        }
 
         //PRTLoading_Eng
-        document.getElementById(listOfStations[2]).innerHTML = "Running";
-        document.getElementById(listOfStations[2]).className = 'PRTRunning';
-        document.getElementById(listStationIcons[2]).src = "prtRunning.ico";
+        if (currentStatus.search("Engineering") == -1)
+        {
+          document.getElementById(listOfStations[2]).innerHTML = "Running";
+          document.getElementById(listOfStations[2]).className = 'PRTRunning';
+          document.getElementById(listStationIcons[2]).src = "prtRunning.ico";
+        }
+        else
+        {
+          document.getElementById(listOfStations[2]).innerHTML = "Down";
+          document.getElementById(listOfStations[2]).className = 'PRTDown';
+          document.getElementById(listStationIcons[2]).src = "prtDown.ico";
+        }
 
         //PRTLoading_H
-        document.getElementById(listOfStations[3]).innerHTML = "Running";
-        document.getElementById(listOfStations[3]).className = 'PRTRunning';
-        document.getElementById(listStationIcons[3]).src = "prtRunning.ico";
+        if (currentStatus.search("HSC") == -1)
+        {
+          document.getElementById(listOfStations[3]).innerHTML = "Running";
+          document.getElementById(listOfStations[3]).className = 'PRTRunning';
+          document.getElementById(listStationIcons[3]).src = "prtRunning.ico";
+        }
+        else
+        {
+          document.getElementById(listOfStations[3]).innerHTML = "Down";
+          document.getElementById(listOfStations[3]).className = 'PRTDown';
+          document.getElementById(listStationIcons[3]).src = "prtDown.ico";
+        }
 
         //PRTLoading_W
-        document.getElementById(listOfStations[4]).innerHTML = "Running";
-        document.getElementById(listOfStations[4]).className = 'PRTRunning';
-        document.getElementById(listStationIcons[4]).src = "prtRunning.ico";
+        if (currentStatus.search("Walnut") == -1)
+        {
+          document.getElementById(listOfStations[4]).innerHTML = "Running";
+          document.getElementById(listOfStations[4]).className = 'PRTRunning';
+          document.getElementById(listStationIcons[4]).src = "prtRunning.ico";
+        }
+        else
+        {
+          document.getElementById(listOfStations[4]).innerHTML = "Down";
+          document.getElementById(listOfStations[4]).className = 'PRTDown';
+          document.getElementById(listStationIcons[4]).src = "prtDown.ico";
+        }
 
-      }
+        if (currentStatus.search("closed") != -1)
+        {
+          document.getElementById(listOfStations[0]).innerHTML = "Closed";
+          document.getElementById(listOfStations[0]).className = 'PRTDown';
 
-      else if (currentStatus != "null")
-      {
-        document.getElementById(listOfStations[0]).innerHTML = "Down";
-        document.getElementById(listOfStations[0]).className = 'PRTDown';
-        document.getElementById(listStationIcons[0]).src = "prtDown.ico";
+          document.getElementById(listOfStations[1]).innerHTML = "Closed";
+          document.getElementById(listOfStations[1]).className = 'PRTDown';
 
-        document.getElementById(listOfStations[1]).innerHTML = "Down";
-        document.getElementById(listOfStations[1]).className = 'PRTDown';
-        document.getElementById(listStationIcons[1]).src = "prtDown.ico";
+          document.getElementById(listOfStations[2]).innerHTML = "Closed";
+          document.getElementById(listOfStations[2]).className = 'PRTDown';
 
-        document.getElementById(listOfStations[2]).innerHTML = "Down";
-        document.getElementById(listOfStations[2]).className = 'PRTDown';
-        document.getElementById(listStationIcons[2]).src = "prtDown.ico";
+          document.getElementById(listOfStations[3]).innerHTML = "Closed";
+          document.getElementById(listOfStations[3]).className = 'PRTDown';
 
-        document.getElementById(listOfStations[3]).innerHTML = "Down";
-        document.getElementById(listOfStations[3]).className = 'PRTDown';
-        document.getElementById(listStationIcons[3]).src = "prtDown.ico";
+          document.getElementById(listOfStations[4]).innerHTML = "Closed";
+          document.getElementById(listOfStations[4]).className = 'PRTDown';
+        }
 
-        document.getElementById(listOfStations[4]).innerHTML = "Down";
-        document.getElementById(listOfStations[4]).className = 'PRTDown';
-        document.getElementById(listStationIcons[4]).src = "prtDown.ico";
       }
 
       else
