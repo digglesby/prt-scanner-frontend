@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="prtdata" href="https://watjl80v2k.execute-api.us-east-1.amazonaws.com/Test1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.2"></script>
 
     <title>P.R.T. Scanner</title>
   </head>
@@ -48,7 +49,7 @@
           <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img id="PRTIcon_W" src=""/>
       </p>
       <h2>Graphs</h2>
-      <p>Graph 1</p>
+      <canvas id="histogram"></canvas>
       <p>Graph 2</p>
       <p>Graph 3</p>
     </div>
@@ -70,18 +71,42 @@
         // If it contains "Mention/Error" or "retweet" then it will output null.
         // We will change the status of all the stations to "closed" if it is null.
         var currentStatus = "null";
-        if (data[1].length != 0)
+        // if (data[1].length != 0)
+        // {
+        //   for (var a = 0; a < data[1].length; a++)
+        //   {
+        //     console.log(data[1][a]);
+        //     if (data[1][a].IsDown != "Mention/Error" || data[1][a].IsDown != "retweet")
+        //     {
+        //       currentStatus = data[1][a].IsDown;
+        //       break;
+        //     }
+        //   }
+        // }
+
+        var firstarray = 5;
+        if (data[firstarray].length != 0)
         {
-          for (var a = 0; a < data[1].length; a++)
-          {
-            console.log(data[1][a]);
-            if (data[1][a].IsDown != "Mention/Error" || data[1][a].IsDown != "retweet")
-            {
-              currentStatus = data[1][a].IsDown;
-              break;
-            }
-          }
+          // Itterates through each object in the array.
+          for (var a = 0; a < data[firstarray].length-1; a++)
+           {
+             // slice the date and split it between 3 integers hour, minute, second.
+            var hourA  = data[firstarray][a].Date.slice(11,13);
+            var minuteA = data[firstarray][a].Date.slice(14,16);
+            var secondA = data[firstarray][a].Date.slice(17);
+
+            var hourB  = data[firstarray][a+1].Date.slice(11,13);
+            var minuteB = data[firstarray][a+1].Date.slice(14,16);
+            var secondB = data[firstarray][a+1].Date.slice(17);
+
+            console.log(data[firstarray][a].Date);
+
+           }
+
+           //Output the sorted array
+           console.log(data[firstarray][0]);
         }
+
 
         // First date with elements in the array.
         console.log("Current Status of the PRT: " + currentStatus);
@@ -94,6 +119,40 @@
       },
 
     });
+
+    var ctx = document.getElementById('histogram').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        datasets: [{
+            label: 'Bar Dataset',
+            data: [10, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20],
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            // this dataset is drawn below
+            order: 2
+        }, {
+            label: 'Line Dataset',
+            data: [10, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20, 30, 20, 20],
+            type: 'line',
+            borderColor: 'rgb(0, 99, 132)',
+            // this dataset is drawn on top
+            order: 1
+        }],
+        labels: ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM']
+    },
+
+    // Configuration options go here
+    options: {}
+    });
+
+    function sortDate(listofDates)
+    {
+
+    }
 
     function myFunction()
     {
