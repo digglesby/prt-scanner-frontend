@@ -65,60 +65,9 @@
       success: function(data, status)
       {
 
-        console.log("Status: "+ status + " connecting to apigateway." + "\n\nData:");
+        console.log("Status: "+ status + " connecting to apigateway." + "\nData:");
+        prtStatusFunction(data);
 
-        // This for loop looks at the first array and outputs the first element in that array.
-        // If it contains "Mention/Error" or "retweet" then it will output null.
-        // We will change the status of all the stations to "closed" if it is null.
-        var currentStatus = "null";
-        // if (data[1].length != 0)
-        // {
-        //   for (var a = 0; a < data[1].length; a++)
-        //   {
-        //     console.log(data[1][a]);
-        //     if (data[1][a].IsDown != "Mention/Error" || data[1][a].IsDown != "retweet")
-        //     {
-        //       currentStatus = data[1][a].IsDown;
-        //       break;
-        //     }
-        //   }
-        // }
-
-        var firstarray = 7;
-        if (data[firstarray].length != 0)
-        {
-          // Itterates through each object in the array.
-          console.log("\nStart Result: \n" + data[firstarray][0].Date + " \n" + data[firstarray][1].Date + "\n" + data[firstarray][2].Date + "\n" + data[firstarray][3].Date + "\n");
-
-
-          for (var a = 0; a < data[firstarray].length; a++)
-          {
-            for (var b = 0; b < data[firstarray].length -a -1; b++)
-             {
-               // slice the date and split it between 3 integers hour, minute, second.
-              var minuteA = data[firstarray][b].Date.slice(14,16);
-              var secondA = data[firstarray][b].Date.slice(17);
-
-              var minuteB = data[firstarray][b+1].Date.slice(14,16);
-              var secondB = data[firstarray][b+1].Date.slice(17);
-
-              // Hours
-              if (data[firstarray][b].Date.slice(11,13) > data[firstarray][b+1].Date.slice(11,13))
-              {
-                var temp = data[firstarray][b];
-                data[firstarray][b] = data[firstarray][b+1];
-                data[firstarray][b+1] = temp;
-              }
-              // TODO: Minutes and Seconds.
-            }
-          }
-          console.log("\nFinal Result: \n" + data[firstarray][0].Date + " \n" + data[firstarray][1].Date + "\n" + data[firstarray][2].Date + "\n" + data[firstarray][3].Date + "\n");
-        }
-
-
-        // First date with elements in the array.
-        console.log("Current Status of the PRT: " + currentStatus);
-        prtStatusFunction(currentStatus);
       },
 
       error: function(response)
@@ -160,9 +109,44 @@
     }
     });
 
-    function sortDate(listofDates)
+    function sortDate(data, array)
     {
+      for (var a = 0; a < data[array].length; a++)
+      {
+        for (var b = 0; b < data[array].length -a -1; b++)
+         {
+           // slice the date and split it between 3 integers hour, minute, second between group A and B.
+          var hourA = data[array][b].Date.slice(11,13);
+          var minuteA = data[array][b].Date.slice(14,16);
+          var secondA = data[array][b].Date.slice(17);
 
+          var hourB = data[array][b+1].Date.slice(11,13);
+          var minuteB = data[array][b+1].Date.slice(14,16);
+          var secondB = data[array][b+1].Date.slice(17);
+
+          // Hours
+          if (hourA > hourB)
+          {
+            var temp = data[array][b];
+            data[array][b] = data[array][b+1];
+            data[array][b+1] = temp;
+          }
+          // Minutes
+          else if (hourA == hourB && minuteA > minuteB)
+          {
+            var temp = data[array][b];
+            data[array][b] = data[array][b+1];
+            data[array][b+1] = temp;
+          }
+          //Seconds
+          else if (hourA == hourB && minuteA == minuteB && secondA > secondB )
+          {
+            var temp = data[array][b];
+            data[array][b] = data[array][b+1];
+            data[array][b+1] = temp;
+          }
+        }
+      }
     }
 
     function myFunction()
@@ -176,14 +160,20 @@
       }
     }
 
-    function prtStatusFunction(currentStatus)
+    function prtStatusFunction(data)
     {
+      firstObject = 1;
+      var length = data[firstObject].length-1;
       let listOfStations = ["PRTLoading_B", "PRTLoading_Evan", "PRTLoading_Eng", "PRTLoading_H", "PRTLoading_W"];
       let listStationIcons = ["PRTIcon_B", "PRTIcon_Evan", "PRTIcon_Eng", "PRTIcon_H", "PRTIcon_W"];
 
+      console.log("Before Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
+      sortDate(data,firstObject);
+      console.log("After Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
+      var currentStatus = data[firstObject][length].IsDown;
+
       if (currentStatus != "null")
       {
-
         //PRTLoading_B
         if (currentStatus.search("Beechurst") == -1)
         {
