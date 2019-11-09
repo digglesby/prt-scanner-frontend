@@ -84,27 +84,35 @@
         //   }
         // }
 
-        var firstarray = 5;
+        var firstarray = 7;
         if (data[firstarray].length != 0)
         {
           // Itterates through each object in the array.
-          for (var a = 0; a < data[firstarray].length-1; a++)
-           {
-             // slice the date and split it between 3 integers hour, minute, second.
-            var hourA  = data[firstarray][a].Date.slice(11,13);
-            var minuteA = data[firstarray][a].Date.slice(14,16);
-            var secondA = data[firstarray][a].Date.slice(17);
+          console.log("\nStart Result: \n" + data[firstarray][0].Date + " \n" + data[firstarray][1].Date + "\n" + data[firstarray][2].Date + "\n" + data[firstarray][3].Date + "\n");
 
-            var hourB  = data[firstarray][a+1].Date.slice(11,13);
-            var minuteB = data[firstarray][a+1].Date.slice(14,16);
-            var secondB = data[firstarray][a+1].Date.slice(17);
 
-            console.log(data[firstarray][a].Date);
+          for (var a = 0; a < data[firstarray].length; a++)
+          {
+            for (var b = 0; b < data[firstarray].length -a -1; b++)
+             {
+               // slice the date and split it between 3 integers hour, minute, second.
+              var minuteA = data[firstarray][b].Date.slice(14,16);
+              var secondA = data[firstarray][b].Date.slice(17);
 
-           }
+              var minuteB = data[firstarray][b+1].Date.slice(14,16);
+              var secondB = data[firstarray][b+1].Date.slice(17);
 
-           //Output the sorted array
-           console.log(data[firstarray][0]);
+              // Hours
+              if (data[firstarray][b].Date.slice(11,13) > data[firstarray][b+1].Date.slice(11,13))
+              {
+                var temp = data[firstarray][b];
+                data[firstarray][b] = data[firstarray][b+1];
+                data[firstarray][b+1] = temp;
+              }
+              // TODO: Minutes and Seconds.
+            }
+          }
+          console.log("\nFinal Result: \n" + data[firstarray][0].Date + " \n" + data[firstarray][1].Date + "\n" + data[firstarray][2].Date + "\n" + data[firstarray][3].Date + "\n");
         }
 
 
@@ -146,7 +154,10 @@
     },
 
     // Configuration options go here
-    options: {}
+    options:
+    {
+      legend: {display: false}
+    }
     });
 
     function sortDate(listofDates)
