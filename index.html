@@ -67,6 +67,7 @@
 
         console.log("Status: "+ status + " connecting to apigateway." + "\nData:");
         prtStatusFunction(data);
+        histogramData(data);
 
       },
 
@@ -158,6 +159,20 @@
       {
         x.className = "topnav";
       }
+    }
+
+    function histogramData(data)
+    {
+      var time  = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+      var count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+      for (var i = 0; i < time.length; i++)
+      {
+        console.log("Time: " + time[i]  + " count: " + count[i]);
+      }
+
+      console.log("Before Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
+
     }
 
     function prtStatusFunction(data)
