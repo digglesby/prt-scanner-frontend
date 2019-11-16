@@ -158,8 +158,14 @@ PrtStatusBody
   font-weight: bold;
 }
 
-.PRTLoading_B, .PRTLoading_H, .PRTLoading_W, .PRTLoading_Eng, .PRTLoading_Evan
+.Average
 {
-  color: #FFE400;
+  font-weight: bold;
+  color: orange;
+}
+
+.PRTLoading_B, .PRTLoading_H, .PRTLoading_W, .PRTLoading_Eng, .PRTLoading_Evan, .LoadingAVG
+{
+  color: orange;
   font-weight: bold;
 }

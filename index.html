@@ -47,6 +47,10 @@
 
         <span class="StationStatus" id="StationStatus">Walnut Station: </span>
           <span class="PRTLoading_W" id="PRTLoading_W">Loading...</span> <img id="PRTIcon_W" src=""/>
+        <br style="display=none"></br>
+
+        <span class="StationStatus" id="StationStatus">Average downs per day: </span>
+          <span class="LoadingAVG" id="LoadingAVG">Loading...</span>
       </p>
       <h2>Graphs</h2>
       <canvas id="histogram"></canvas>
@@ -67,6 +71,7 @@
 
         console.log("Status: "+ status + " connecting to apigateway." + "\nData:");
         prtStatusFunction(data);
+        average(data);
         histogramData(data);
 
       },
@@ -164,6 +169,8 @@
     function parseHour(Date)
     {
       var hour = + parseInt((Date.slice(11,13)));
+      //Time Difference
+      // var hour = hour - 2;
       //we do this because we are setting the correct index from count array.
       if (+hour >= 6 && +hour <= 22)
       {
@@ -225,6 +232,39 @@
       return +hour;
     }
 
+    function average(data)
+    {
+      var count = 0;
+      var totaldays = 0;
+
+      for (var a = 0; a < data.length; a++)
+      {
+        if (a % 2 != 0 && data[a].length != 0)
+        {
+          totaldays++;
+          for (var b = 0; b < data[a].length; b++)
+          {
+            if (data[a][b].IsDown.search("Beechurst") != -1)
+            {count++;}
+            if (data[a][b].IsDown.search("Towers") != -1)
+            {count++;}
+            if (data[a][b].IsDown.search("Engineering") != -1)
+            {count++;}
+            if (data[a][b].IsDown.search("HSC") != -1)
+            {count++;}
+            if (data[a][b].IsDown.search("Walnut") != -1)
+            {count++;}
+          }
+        }
+      }
+
+    console.log("TotalDowns: " + count + " Totaldays counted:" + totaldays)
+    var average = (count / totaldays);
+    average = Math.round(average * 1000) / 1000;
+    document.getElementById("LoadingAVG").innerHTML = average;
+    document.getElementById("LoadingAVG").className = 'Average';
+    }
+
     function histogramData(data)
     {
       var time  = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
@@ -265,10 +305,10 @@
         }
       }
 
-      for (var i = 0; i < time.length; i++)
-      {
-        console.log("Time: " + time[i]  + " count: " + count[i]);
-      }
+      // for (var i = 0; i < time.length; i++)
+      // {
+      //   console.log("Time: " + time[i]  + " count: " + count[i]);
+      // }
 
       updateData(count);
     }
@@ -289,9 +329,9 @@
       if (data[firstObject].length != 0)
       {
 
-        console.log("Before Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
+        // console.log("Before Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
         sortDate(data,firstObject);
-        console.log("After Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
+        // console.log("After Sort:" + data[firstObject][length].Date + " " + data[firstObject][length].IsDown);
         var currentStatus = data[firstObject][length].IsDown;
           //PRTLoading_B
           if (currentStatus.search("Beechurst") == -1)
