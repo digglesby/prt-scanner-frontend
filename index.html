@@ -53,8 +53,10 @@
           <span class="LoadingAVG" id="LoadingAVG">Loading...</span>
       </p>
       <h2>Graphs</h2>
+      <p>Time Periods the PRT Shuttle goes down</p>
       <canvas id="histogram"></canvas>
-      <p>Time Periods the PRT Shuttle goes Down</p>
+      <p>Weather Conditions PRT </p>
+      <canvas id="stackedChart"></canvas>
       <p></p>
     </div>
 
@@ -84,10 +86,9 @@
     });
 
     var ctx = document.getElementById('histogram').getContext('2d');
-    var chart = new Chart(ctx, {
+    var chartBarLine = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',
-
     // The data for our dataset
     data: {
         datasets: [{
@@ -114,6 +115,61 @@
       legend: {display: false}
     }
     });
+
+    var ctx = document.getElementById('stackedChart').getContext('2d');
+    var chartPie = new Chart(ctx,
+    {
+    // The type of chart we want to create
+    type: 'pie',
+    // The data for our dataset
+    data: {
+            datasets:
+            [{
+                data: ['20', '20', '20', '20'],
+                backgroundColor: ['rgb(0, 255, 255)', 'rgb(0, 0, 255)', 'rgb(255, 255, 0)', 'rgb(128, 128, 128)', 'rgb(128, 128, 128)'],
+            }],
+            labels: ['Snow', 'Rain', 'Sunny', 'Cloudy']
+          },
+    // Configuration options go here
+      options:
+      {
+        legend: {display: true}
+      }
+    });
+
+    function updateData(updateData, number)
+    {
+      if (number == 0)
+      {
+  		  chartBarLine.data.datasets[0].data = updateData;
+        chartBarLine.data.datasets[1].data = updateData;
+      }
+      else if (number == 1)
+      {
+        chartPie.data.datasets[0].data = updateData;
+      }
+      chartBarLine.update();
+    }
+
+    function weatherPieChart(data)
+    {
+      var count = [];
+      var conditions = [];
+
+      for (var a = 0; a < data.length; a++)
+      {
+        if (a % 2 != 0 && data[a].length != 0)
+        {
+          for (var b = 0; b < data[a].length; b++)
+          {
+
+          }
+        }
+      }
+
+      return(count, conditions);
+    }
+
 
     function sortDate(data, array)
     {
@@ -304,20 +360,7 @@
           }
         }
       }
-
-      // for (var i = 0; i < time.length; i++)
-      // {
-      //   console.log("Time: " + time[i]  + " count: " + count[i]);
-      // }
-
-      updateData(count);
-    }
-
-    function updateData(arrayUpdate)
-    {
-  		chart.data.datasets[0].data = arrayUpdate;
-      chart.data.datasets[1].data = arrayUpdate;
-      chart.update();
+      updateData(count, 0);
     }
 
     function prtStatusFunction(data)
