@@ -75,6 +75,7 @@
         prtStatusFunction(data);
         average(data);
         histogramData(data);
+        weatherPieChart(data);
 
       },
 
@@ -153,8 +154,7 @@
 
     function weatherPieChart(data)
     {
-      var count = [];
-      var conditions = [];
+      var weatherDic = {};
 
       for (var a = 0; a < data.length; a++)
       {
@@ -162,12 +162,27 @@
         {
           for (var b = 0; b < data[a].length; b++)
           {
+            if (!(data[a][b].Weather in weatherDic))
+            {
+              weatherDic[data[a][b].Weather] = 0;
+            }
 
+            if (data[a][b].IsDown.search("Beechurst") != -1)
+            {weatherDic[data[a][b].Weather]++;}
+            if (data[a][b].IsDown.search("Towers") != -1)
+            {weatherDic[data[a][b].Weather]++;}
+            if (data[a][b].IsDown.search("Engineering") != -1)
+            {weatherDic[data[a][b].Weather]++;}
+            if (data[a][b].IsDown.search("HSC") != -1)
+            {weatherDic[data[a][b].Weather]++;}
+            if (data[a][b].IsDown.search("Walnut") != -1)
+            {weatherDic[data[a][b].Weather]++;}
+            console.log(weatherDic);
           }
         }
       }
 
-      return(count, conditions);
+      updateData(weatherDic, 1);
     }
 
 
