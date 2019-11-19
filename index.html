@@ -126,10 +126,10 @@
     data: {
             datasets:
             [{
-                data: ['20', '20', '20', '20'],
-                backgroundColor: ['rgb(0, 255, 255)', 'rgb(0, 0, 255)', 'rgb(255, 255, 0)', 'rgb(128, 128, 128)', 'rgb(128, 128, 128)'],
+                data: [0, 0, 0, 0],
+                backgroundColor: ['rgb(255, 105, 97)', 'rgb(119, 221, 119)', 'rgb(108, 160, 220)', 'rgb(128, 128, 128)', 'rgb(128, 128, 128)'],
             }],
-            labels: ['Snow', 'Rain', 'Sunny', 'Cloudy']
+            labels: ['Loading', 'Loading', 'Loading', 'Loading']
           },
     // Configuration options go here
       options:
@@ -140,16 +140,20 @@
 
     function updateData(updateData, number)
     {
-      if (number == 0)
+      if (number === 0)
       {
   		  chartBarLine.data.datasets[0].data = updateData;
         chartBarLine.data.datasets[1].data = updateData;
+        chartBarLine.update();
       }
-      else if (number == 1)
+      else if (number === 1)
       {
-        chartPie.data.datasets[0].data = updateData;
+        keys = Object.keys(updateData);
+        console.log(keys);
+        chartPie.data.labels = keys;
+        chartPie.data.datasets[0].data = Object.values(updateData);
+        chartPie.update();
       }
-      chartBarLine.update();
     }
 
     function weatherPieChart(data)
