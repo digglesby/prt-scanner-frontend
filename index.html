@@ -33,7 +33,7 @@
           <span class="PRTLoading_B" id="PRTLoading_B">Loading...</span> <img id="PRTIcon_B" src=""/>
         <br style="display=none"></br>
 
-        <span class="StationStatus" id="StationStatus">Evansdale Station: </span>
+        <span class="StationStatus" id="StationStatus">Towers Station: </span>
           <span class="PRTLoading_Evan" id="PRTLoading_Evan">Loading...</span> <img id="PRTIcon_Evan" src=""/>
         <br style="display=none"></br>
 
@@ -55,7 +55,7 @@
       <h2>Graphs</h2>
       <p>Time Periods the PRT Shuttle goes down</p>
       <canvas id="histogram"></canvas>
-      <p>Weather Conditions PRT </p>
+      <p>PRT Shuttle Downs due to Weather Conditions </p>
       <canvas id="stackedChart"></canvas>
       <p></p>
     </div>
@@ -127,7 +127,7 @@
             datasets:
             [{
                 data: [0, 0, 0, 0],
-                backgroundColor: ['rgb(255, 105, 97)', 'rgb(119, 221, 119)', 'rgb(108, 160, 220)', 'rgb(128, 128, 128)', 'rgb(128, 128, 128)'],
+                backgroundColor: ['rgb(255, 105, 97)', 'rgb(119, 221, 119)', 'rgb(108, 160, 220)', 'rgb(2, 181, 160)', 'rgb(255, 211, 92)', 'rgb(234, 62, 112)', 'rgb(1, 128, 181)'],
             }],
             labels: ['Loading', 'Loading', 'Loading', 'Loading']
           },
@@ -149,9 +149,13 @@
       else if (number === 1)
       {
         keys = Object.keys(updateData);
+        values = Object.values(updateData);
         console.log(keys);
+        console.log(values);
+        // values = percentageFinder(values);
+        console.log(values);
         chartPie.data.labels = keys;
-        chartPie.data.datasets[0].data = Object.values(updateData);
+        chartPie.data.datasets[0].data = values;
         chartPie.update();
       }
     }
@@ -188,6 +192,29 @@
 
       updateData(weatherDic, 1);
     }
+
+    // function percentageFinder(array)
+    // {
+    //   var sum = 0;
+    //   var count = 0;
+    //   for(var i = 0; i < array.length; i++)
+    //   {
+    //     console.log(sum);
+    //     if (array[i] != 0)
+    //     {
+    //       count++;
+    //     }
+    //     sum += array[i];
+    //   }
+    //   sum = sum / count;
+    //
+    //   for(var j = 0; j < array.length; j++)
+    //   {
+    //     array[j] = array[j]/sum;
+    //   }
+    //
+    //   return (array);
+    // }
 
 
     function sortDate(data, array)
