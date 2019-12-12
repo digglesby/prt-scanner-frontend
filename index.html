@@ -174,7 +174,6 @@
             {
               weatherDic[data[a][b].Weather] = 0;
             }
-
             if (data[a][b].IsDown.search("Beechurst") != -1)
             {weatherDic[data[a][b].Weather]++;}
             if (data[a][b].IsDown.search("Towers") != -1)
@@ -193,28 +192,15 @@
       updateData(weatherDic, 1);
     }
 
-    // function percentageFinder(array)
-    // {
-    //   var sum = 0;
-    //   var count = 0;
-    //   for(var i = 0; i < array.length; i++)
-    //   {
-    //     console.log(sum);
-    //     if (array[i] != 0)
-    //     {
-    //       count++;
-    //     }
-    //     sum += array[i];
-    //   }
-    //   sum = sum / count;
-    //
-    //   for(var j = 0; j < array.length; j++)
-    //   {
-    //     array[j] = array[j]/sum;
-    //   }
-    //
-    //   return (array);
-    // }
+    function percentageFinder(array)
+    {
+      for(var a = 0; a < array.length; a++)
+      {
+        print(array[a]);
+      }
+
+      return (array);
+    }
 
 
     function sortDate(data, array)
@@ -270,10 +256,18 @@
 
     function parseHour(Date)
     {
-      var hour = + parseInt((Date.slice(11,13)));
-      //Time Difference
-      // var hour = hour - 2;
-      //we do this because we are setting the correct index from count array.
+      var hour = parseInt((Date.slice(11,13)));
+      // Time Difference python code fetches London Time.
+      if (hour > 5)
+      {
+        hour = hour - 5;
+      }
+      else
+      {
+        var difference =  hour - 5;
+        hour = 24 - difference;
+      }
+      // we do this because we are setting the correct index from count array.
       if (+hour >= 6 && +hour <= 22)
       {
         switch (+hour)
