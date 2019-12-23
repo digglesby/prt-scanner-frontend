@@ -1,0 +1,41 @@
+{
+  "name": "prt-scanner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "next",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "bash prod_path.sh && serverless deploy && bash dev_path.sh",
+    "dev": "next"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@nivo/calendar": "^0.61.1",
+    "@nivo/line": "^0.61.0",
+    "@nivo/pie": "^0.61.0",
+    "atob": "^2.1.2",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "fetch": "^1.1.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "next": "^8.0.1",
+    "next-seo": "^3.2.0",
+    "nivo": "^0.31.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-icons": "^3.8.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-react": "^7.17.0"
+  }
+}
