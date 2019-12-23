@@ -36,6 +36,8 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-react": "^7.17.0"
+    "eslint-plugin-react": "^7.17.0",
+    "serverless": "^1.60.3",
+    "serverless-nextjs-plugin": "^2.4.4"
   }
 }
