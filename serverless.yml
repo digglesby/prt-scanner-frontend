@@ -2,7 +2,7 @@ service: prtscanner-website
 
 provider:
     name: aws
-    runtime: nodejs8.10
+    runtime: nodejs10.x
     profile: prtscanner #AWS profile for the upload
 
 plugins:

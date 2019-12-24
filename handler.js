@@ -1,11 +1,13 @@
-const compat = require("serverless-nextjs-plugin/aws-lambda-compat");
+const compat = require("next-aws-lambda");
 
 module.exports = page => {
-  const handler = (event, context, callback) => {
+  const handler = (event, context) => {
 
     process.env.static_override = "https://cdn.prtscanner.com";
 
-    compat(page)(event, context, callback);
+    const responsePromise = compat(page)(event, context);
+
+    return responsePromise;
   };
   return handler;
 };

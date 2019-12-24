@@ -96,7 +96,7 @@ class NotificationButton extends React.Component {
 
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         try {
-          let swReg = await navigator.serviceWorker.register( STATIC_PATH + '/sw.js' );
+          let swReg = await navigator.serviceWorker.register( '/static/sw.js' );
           let subscription = await swReg.pushManager.getSubscription();
 
           if (this.mounted){

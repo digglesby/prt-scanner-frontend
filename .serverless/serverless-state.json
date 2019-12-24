@@ -8,7 +8,7 @@
       "stage": "dev",
       "variableSyntax": "\\${([ ~:a-zA-Z0-9._@'\",\\-\\/\\(\\)*?]+?)}",
       "name": "aws",
-      "runtime": "nodejs8.10",
+      "runtime": "nodejs10.x",
       "profile": "prtscanner",
       "region": "us-east-1",
       "versionFunctions": true,
@@ -173,7 +173,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/prtscanner-website/dev/1577126569175-2019-12-23T18:42:49.175Z/prtscanner-website.zip"
+                "S3Key": "serverless/prtscanner-website/dev/1577131157898-2019-12-23T19:59:17.898Z/prtscanner-website.zip"
               },
               "FunctionName": "prtscanner-website-dev-not-found",
               "Handler": "sls-next-build/_error.render",
@@ -184,7 +184,7 @@
                   "Arn"
                 ]
               },
-              "Runtime": "nodejs8.10",
+              "Runtime": "nodejs10.x",
               "Timeout": 6
             },
             "DependsOn": [
@@ -192,14 +192,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "NotDashfoundLambdaVersioncG7nQQyooPGguk91oQZXb1mPVG0KYGOuWg1xnsfA": {
+          "NotDashfoundLambdaVersionXEzZG9Hh8JIP25iauK8H9Z80SrHPZGiiBj7RateO6M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "NotDashfoundLambdaFunction"
               },
-              "CodeSha256": "Ix6iI7z7hxpGY/b1t6C8ql0UpXuPHA2azp/kITxicgw="
+              "CodeSha256": "OYJOvG+yTAJkelzKdlUat0s5pcH5m2h3zlDJrl2erWI="
             }
           },
           "IndexLambdaFunction": {
@@ -209,7 +209,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/prtscanner-website/dev/1577126569175-2019-12-23T18:42:49.175Z/prtscanner-website.zip"
+                "S3Key": "serverless/prtscanner-website/dev/1577131157898-2019-12-23T19:59:17.898Z/prtscanner-website.zip"
               },
               "FunctionName": "prtscanner-website-dev-index",
               "Handler": "sls-next-build/index.render",
@@ -220,7 +220,7 @@
                   "Arn"
                 ]
               },
-              "Runtime": "nodejs8.10",
+              "Runtime": "nodejs10.x",
               "Timeout": 6
             },
             "DependsOn": [
@@ -228,14 +228,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "IndexLambdaVersionA8XWV0l9MlOWCTmqphqYhwJnE0SDffpOyoW4302NwNE": {
+          "IndexLambdaVersionyGFBDaexPl06s3jtEiOrrJHktRfbwB7E8JuA59Dfw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "IndexLambdaFunction"
               },
-              "CodeSha256": "Ix6iI7z7hxpGY/b1t6C8ql0UpXuPHA2azp/kITxicgw="
+              "CodeSha256": "OYJOvG+yTAJkelzKdlUat0s5pcH5m2h3zlDJrl2erWI="
             }
           },
           "StationLambdaFunction": {
@@ -245,7 +245,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/prtscanner-website/dev/1577126569175-2019-12-23T18:42:49.175Z/prtscanner-website.zip"
+                "S3Key": "serverless/prtscanner-website/dev/1577131157898-2019-12-23T19:59:17.898Z/prtscanner-website.zip"
               },
               "FunctionName": "prtscanner-website-dev-station",
               "Handler": "sls-next-build/station.render",
@@ -256,7 +256,7 @@
                   "Arn"
                 ]
               },
-              "Runtime": "nodejs8.10",
+              "Runtime": "nodejs10.x",
               "Timeout": 6
             },
             "DependsOn": [
@@ -264,14 +264,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "StationLambdaVersioniwvgS8HiWoND5ZkgNfseN0YaAMWPyHi9aY1n3hscGs8": {
+          "StationLambdaVersiony5MBfGoQjCPY1zx0hO6V4YZzhxUk1k3f8C2uHcmKBc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "StationLambdaFunction"
               },
-              "CodeSha256": "Ix6iI7z7hxpGY/b1t6C8ql0UpXuPHA2azp/kITxicgw="
+              "CodeSha256": "OYJOvG+yTAJkelzKdlUat0s5pcH5m2h3zlDJrl2erWI="
             }
           },
           "ApiGatewayRestApi": {
@@ -595,7 +595,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1577126496001": {
+          "ApiGatewayDeployment1577131116355": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -908,19 +908,19 @@
           "NotDashfoundLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "NotDashfoundLambdaVersioncG7nQQyooPGguk91oQZXb1mPVG0KYGOuWg1xnsfA"
+              "Ref": "NotDashfoundLambdaVersionXEzZG9Hh8JIP25iauK8H9Z80SrHPZGiiBj7RateO6M"
             }
           },
           "IndexLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "IndexLambdaVersionA8XWV0l9MlOWCTmqphqYhwJnE0SDffpOyoW4302NwNE"
+              "Ref": "IndexLambdaVersionyGFBDaexPl06s3jtEiOrrJHktRfbwB7E8JuA59Dfw"
             }
           },
           "StationLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "StationLambdaVersioniwvgS8HiWoND5ZkgNfseN0YaAMWPyHi9aY1n3hscGs8"
+              "Ref": "StationLambdaVersiony5MBfGoQjCPY1zx0hO6V4YZzhxUk1k3f8C2uHcmKBc"
             }
           },
           "ServiceEndpoint": {
@@ -1154,9 +1154,9 @@
         "package": {},
         "memory": 1024,
         "timeout": 6,
-        "runtime": "nodejs8.10",
+        "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "NotDashfoundLambdaVersioncG7nQQyooPGguk91oQZXb1mPVG0KYGOuWg1xnsfA"
+        "versionLogicalId": "NotDashfoundLambdaVersionXEzZG9Hh8JIP25iauK8H9Z80SrHPZGiiBj7RateO6M"
       },
       "index": {
         "handler": "sls-next-build/index.render",
@@ -1180,9 +1180,9 @@
         "package": {},
         "memory": 1024,
         "timeout": 6,
-        "runtime": "nodejs8.10",
+        "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "IndexLambdaVersionA8XWV0l9MlOWCTmqphqYhwJnE0SDffpOyoW4302NwNE"
+        "versionLogicalId": "IndexLambdaVersionyGFBDaexPl06s3jtEiOrrJHktRfbwB7E8JuA59Dfw"
       },
       "station": {
         "handler": "sls-next-build/station.render",
@@ -1216,9 +1216,9 @@
         "package": {},
         "memory": 1024,
         "timeout": 6,
-        "runtime": "nodejs8.10",
+        "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "StationLambdaVersioniwvgS8HiWoND5ZkgNfseN0YaAMWPyHi9aY1n3hscGs8"
+        "versionLogicalId": "StationLambdaVersiony5MBfGoQjCPY1zx0hO6V4YZzhxUk1k3f8C2uHcmKBc"
       }
     },
     "resources": {
@@ -1412,7 +1412,7 @@
     "artifact": "/home/digglesby/Workshops/prt-scanner/.serverless/prtscanner-website.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/prtscanner-website/dev/1577126569175-2019-12-23T18:42:49.175Z",
+    "artifactDirectoryName": "serverless/prtscanner-website/dev/1577131157898-2019-12-23T19:59:17.898Z",
     "artifact": "prtscanner-website.zip"
   }
 }
