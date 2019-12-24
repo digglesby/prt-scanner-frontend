@@ -118,9 +118,7 @@ class AdAside extends React.Component {
       }
 
     }
-
-    console.log(outage_periods);
-
+    
     for (var station in outage_periods) {
       let this_station_value = {
         '6AM':0,
@@ -160,10 +158,6 @@ class AdAside extends React.Component {
             am = false;
           } else if (hour == 12) {
             am = false;
-          }
-
-          if (hour == 0) {
-            console.error("ZERO HOUR");
           }
 
           this_station_value[`${hour}${(am) ? "AM" : "PM"}`]++;

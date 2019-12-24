@@ -28,7 +28,7 @@ class Station extends React.Component {
         let this_event = this_day.DataPoints[p];
 
         if ((this_event.IsDown != "allrunning") && (!this_event.IsClosed)){
-          outage_avg_total = outage_avg_total + ( this_event.IsDown.match(/ /g).length );
+          outage_avg_total = outage_avg_total + ( this_event.DownCount );
         }
 
         if (p-1 >= 0){

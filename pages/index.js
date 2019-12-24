@@ -34,9 +34,9 @@ class Index extends React.Component {
             description: 'PRT Scanner is the source for real-time status and statistics for the Morgantown PRT system. Know what PRT stations are running, how long they have been down, and browse historical data on uptime!',
             images: [
               {
-                url: STATIC_PATH+'/thumbnail.png',
-                width: 1600,
-                height: 630,
+                url: STATIC_PATH+'/thumbnail2.jpg',
+                width: 1200,
+                height: 800,
                 alt: 'A PRT car taveling down the track.',
               }
             ],
@@ -50,13 +50,12 @@ class Index extends React.Component {
         />
 
         <div className="info-bg-img" style={{
-          backgroundImage:`url("${STATIC_PATH}/prt_graphic.jpg")`
+          backgroundImage:`url("${STATIC_PATH}/prt_graphic_grey.jpg")`
         }}>
           <div className="info-bg">
             <div className="info-container">
-              <h1>Morgantown PRT Status and Statistics</h1>
-              <p>Is the PRT down? PRTScanner.com shows the current status and statistics of the PRT as reported by WVU.</p>
-              <p>PRT Scanner also keeps detailed statistics on the weather and temperature during outages, which stations go down, and for how long!</p>
+              <h1>Know When the PRT is Down</h1>
+              <p>PRTScanner.com shows the current status and statistics of the PRT as reported by WVU.</p>
               <NotificationButton />
             </div>
           </div>
@@ -77,7 +76,7 @@ class Index extends React.Component {
             <TimeChart />
           </AsideLayout>
 
-
+          <CalandarChart />
         </div>
 
       </PageLayout>

@@ -4,7 +4,8 @@
 import React from 'react';
 import atob from 'atob';
 import CONFIG from '../../lib/config.js';
-import STATIC_PATH from '../../STATIC_PATH.js';
+import fetch from 'isomorphic-unfetch';
+import { FaBell, FaBellSlash } from "react-icons/fa";
 
 class NotificationButton extends React.Component {
 
@@ -55,7 +56,13 @@ class NotificationButton extends React.Component {
         });
       }
 
-      //Send subscription to server
+      console.log(JSON.stringify(subscription));
+
+      fetch('https://api.prtscanner.com/subscriptions',{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subscription })
+      });
 
     }catch(err){
 
@@ -71,6 +78,8 @@ class NotificationButton extends React.Component {
 
         //Remove subscription from server
 
+        console.log("UNSUB",JSON.stringify(subscription));
+
         if (this.mounted){
           this.setState({
             subscription: null
@@ -79,7 +88,7 @@ class NotificationButton extends React.Component {
       }
 
     }catch(error) {
-      console.log('Error unsubscribing', error);
+      console.error('Error unsubscribing', error);
     }
 
   }
@@ -109,7 +118,6 @@ class NotificationButton extends React.Component {
           }
         } catch(e) {
           console.error(e);
-
         }
       } else {
         if (this.mounted){
@@ -137,27 +145,28 @@ class NotificationButton extends React.Component {
 
     if (this.state.hasNotification){
 
+      let text = (<span><FaBell />Get Notifications</span>);
       let buttonState = "subscribe";
-      let text = "Notify me!";
 
       if (this.state.permissionBlocked){
-        text = "Push messaging blocked";
+        text = (<span><FaBellSlash />Permission Blocked</span>);
         buttonState = "blocked";
       }
 
       if (this.state.subscription != null){
-        text = "Unsubscribe";
+        text = (<span><FaBellSlash />Stop Notifications</span>);
         buttonState = "unsubscribe";
       }
 
       return (
         <div className="notification-section">
-          <p>Get notified when a station goes down.</p>
+          <p>Get notified when a station goes down!</p>
 
           <button
-          className={buttonState}
-          disabled={(buttonState == "blocked")}
-          onClick={this.b_onPress}>
+            className={buttonState}
+            disabled={(buttonState == "blocked")}
+            onClick={this.b_onPress}
+          >
             {text}
           </button>
         </div>

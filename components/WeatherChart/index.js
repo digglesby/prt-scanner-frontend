@@ -90,7 +90,7 @@ class AdAside extends React.Component {
 
           if ((!this.props.filter) || (this.props.prtData[i].DataPoints[p].IsDown.indexOf( this.props.filter ) != -1)) {
             let weather = this.props.prtData[i].DataPoints[p].Weather;
-            let count = ( this.props.prtData[i].DataPoints[p].IsDown.match(/ /g).length );
+            let count = ( this.props.prtData[i].DataPoints[p].DownCount );
 
             if (this.props.filter) count = 1;
 

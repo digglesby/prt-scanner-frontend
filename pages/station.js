@@ -11,6 +11,7 @@ import TimeChart from '../components/TimeChart';
 import CalandarChart from '../components/CalandarChart';
 import StationStatus from '../components/StationStatus';
 import ErrorPage from '../components/ErrorScreen';
+import TempChart from '../components/TempChart';
 
 import STATIC_PATH from '../STATIC_PATH.js';
 
@@ -46,9 +47,9 @@ class Station extends React.Component {
               description: 'PRT Scanner is the source for real-time status and statistics for the Morgantown PRT system. Know what PRT stations are running, how long they have been down, and browse historical data on uptime!',
               images: [
                 {
-                  url: STATIC_PATH+'/thumbnail.png',
-                  width: 1600,
-                  height: 630,
+                  url: STATIC_PATH+'/thumbnail2.jpg',
+                  width: 1200,
+                  height: 800,
                   alt: 'A PRT car taveling down the track.',
                 }
               ],
@@ -80,12 +81,14 @@ class Station extends React.Component {
               <TimeChart
                 filter={this.props.id}
               />
-              <CalandarChart
+              <TempChart
                 filter={this.props.id}
               />
             </AsideLayout>
 
-
+            <CalandarChart
+              filter={this.props.id}
+            />
           </div>
 
         </PageLayout>

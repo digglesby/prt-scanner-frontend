@@ -141,14 +141,14 @@ class CalandarChart extends React.Component {
       <div className="full-chart">
         <h3 className="title">Outages by Day</h3>
 
-        <div className="line-container">
-          <div className='line-inner'>
+        <div className="calandar-container">
+          <div className='calandar-inner'>
             <ResponsiveCalendar
               data={data.data}
               from={moment().tz("America/New_York").subtract(30, 'day').format('Y-M-D')}
               to={moment().tz("America/New_York").format('Y-M-D')}
               minValue={0}
-              maxValue={Math.max(5,data.max)}
+              maxValue={Math.max(3,data.max)}
               emptyColor="#eeeeee"
 
               margin={{ top: 10, right: 10, bottom: 30, left: 10 }}
