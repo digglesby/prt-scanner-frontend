@@ -10,7 +10,7 @@ class NotificationButton extends React.Component {
 
     this.state = {
       error: false,
-      success: true,
+      success: false,
       text: ""
     };
 
