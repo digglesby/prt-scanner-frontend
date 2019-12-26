@@ -127,8 +127,6 @@ self.addEventListener('push', function(event) {
     state = "annoucement";
   }
 
-  console.log(link);
-
   let options = {
     body: message,
     icon: '/static/notif_message.png',
@@ -159,8 +157,6 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
 
   event.notification.close();
-
-  console.log(event.notification);
 
   let link = event.notification.data.link;
 

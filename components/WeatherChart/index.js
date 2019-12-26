@@ -1,6 +1,7 @@
 import React from 'react';
 import dataStore from '../../lib/data_store';
 import ChartLegend from '../ChartLegend';
+import TrackingService from '../../lib/TrackingService';
 
 import { ResponsivePie } from '@nivo/pie';
 
@@ -18,17 +19,24 @@ class AdAside extends React.Component {
   }
 
   onLegendFocus(id){
-    if (this.state.focused == id){
-      this.setState({
-        focused: null
-      });
-    } else {
-      this.setState({
-        focused: id
-      });
-    }
-  }
 
+    let new_focus = null;
+
+    if (this.state.focused == id){
+      new_focus = null;
+    } else {
+      new_focus = id;
+    }
+
+    this.setState({
+      focused: new_focus
+    });
+
+    TrackingService.event('chart_interaction','temp_legend_focus',{
+      station:(new_focus == null) ? 'all' : new_focus
+    });
+  }
+  
   getColor(id){
       const colors = {
         "clear":"#a3adbf",

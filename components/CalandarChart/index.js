@@ -2,6 +2,7 @@ import React from 'react';
 import dataStore from '../../lib/data_store';
 import ChartLegend from '../ChartLegend';
 import moment from 'moment-timezone';
+import TrackingService from '../../lib/TrackingService';
 
 import { ResponsiveCalendar } from '@nivo/calendar';
 
@@ -19,15 +20,21 @@ class CalandarChart extends React.Component {
 
   onLegendFocus(id){
 
+    let new_focus = null;
+
     if (this.state.focused == id){
-      this.setState({
-        focused: null
-      });
+      new_focus = null;
     } else {
-      this.setState({
-        focused: id
-      });
+      new_focus = id;
     }
+
+    this.setState({
+      focused: new_focus
+    });
+
+    TrackingService.event('chart_interaction','calandar_legend_focus',{
+      station:(new_focus == null) ? 'all' : new_focus
+    });
   }
 
   getColor(id){

@@ -1,4 +1,5 @@
 import React from 'react';
+import TrackingService from '../../lib/TrackingService';
 
 import STATIC_PATH from '../../STATIC_PATH.js';
 
@@ -6,6 +7,14 @@ class AdAside extends React.Component {
 
   constructor(){
     super();
+
+    this.b_onClick = this.onClick.bind(this);
+  }
+
+  onClick(){
+    TrackingService.event('promoted','ad_click_desktop',{
+      ad_id:"jade"
+    });
   }
 
   render(){
@@ -16,6 +25,7 @@ class AdAside extends React.Component {
           href="https://jadeapp.live/"
           target="_blank"
           rel='noreferrer noopener'
+          onClick={this.b_onClick}
         >
         <div className="promo-image-wrapper">
           <img

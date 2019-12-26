@@ -6,6 +6,8 @@ import atob from 'atob';
 import CONFIG from '../../lib/config.js';
 import fetch from 'isomorphic-unfetch';
 import { FaBell, FaBellSlash } from "react-icons/fa";
+import SMSNotification from '../SMSNotification';
+import TrackingService from '../../lib/TrackingService';
 
 class NotificationButton extends React.Component {
 
@@ -15,7 +17,7 @@ class NotificationButton extends React.Component {
     this.state = {
       subscription: null,
       swRegistration: null,
-      hasNotification: true,
+      hasNotification: false,
       permissionBlocked: null
     };
 
@@ -56,13 +58,13 @@ class NotificationButton extends React.Component {
         });
       }
 
-      console.log(JSON.stringify(subscription));
-
       fetch('https://api.prtscanner.com/subscriptions',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subscription })
       });
+
+      TrackingService.event('notification_flow','user_subscribed');
 
     }catch(err){
 
@@ -78,7 +80,7 @@ class NotificationButton extends React.Component {
 
         //Remove subscription from server
 
-        console.log("UNSUB",JSON.stringify(subscription));
+        TrackingService.event('notification_flow','user_unsubscribed');
 
         if (this.mounted){
           this.setState({
@@ -104,14 +106,20 @@ class NotificationButton extends React.Component {
     if (process.browser) {
 
       if ('serviceWorker' in navigator && 'PushManager' in window) {
+        TrackingService.event('notification_flow','web_push_enabled');
+
         try {
           let swReg = await navigator.serviceWorker.register( '/static/sw.js' );
           let subscription = await swReg.pushManager.getSubscription();
 
+          if ( Notification.permission === 'denied' ){
+            TrackingService.event('notification_flow','web_push_permission_denied');
+          }
+
           if (this.mounted){
             this.setState({
               swRegistration:swReg,
-              hasNotification:true,
+              hasNotification:true, //DEBUG
               subscription:subscription,
               permissionBlocked: (Notification.permission === 'denied')
             });
@@ -120,6 +128,8 @@ class NotificationButton extends React.Component {
           console.error(e);
         }
       } else {
+        TrackingService.event('notification_flow','web_push_unsupported');
+
         if (this.mounted){
           this.setState({
             swRegistration:null,
@@ -173,7 +183,7 @@ class NotificationButton extends React.Component {
       );
 
     } else {
-      return null;
+      return (<SMSNotification />);
     }
 
 

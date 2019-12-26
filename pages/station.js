@@ -1,6 +1,7 @@
 import React from 'react';
 import {NextSeo} from 'next-seo';
 import DataStore from '../lib/data_store';
+import TrackingService from '../lib/TrackingService';
 
 import PageLayout from '../components/PageLayout';
 import AsideLayout from '../components/AsideLayout';
@@ -102,6 +103,10 @@ class Station extends React.Component {
 
   componentWillMount(){
     DataStore.setData(this.props.prt_data);
+  }
+
+  componentDidMount(){
+    TrackingService.pageView();
   }
 
   static async getInitialProps(context){

@@ -2,6 +2,7 @@ import React from 'react';
 import dataStore from '../../lib/data_store';
 import ChartLegend from '../ChartLegend';
 import moment from 'moment-timezone';
+import TrackingService from '../../lib/TrackingService';
 
 import { ResponsiveLine } from '@nivo/line';
 
@@ -20,15 +21,21 @@ class AdAside extends React.Component {
 
   onLegendFocus(id){
 
+    let new_focus = null;
+
     if (this.state.focused == id){
-      this.setState({
-        focused: null
-      });
+      new_focus = null;
     } else {
-      this.setState({
-        focused: id
-      });
+      new_focus = id;
     }
+
+    this.setState({
+      focused: new_focus
+    });
+
+    TrackingService.event('chart_interaction','temp_legend_focus',{
+      station:(new_focus == null) ? 'all' : new_focus
+    });
   }
 
   customTooltip(e){
@@ -118,7 +125,7 @@ class AdAside extends React.Component {
       }
 
     }
-    
+
     for (var station in outage_periods) {
       let this_station_value = {
         '6AM':0,

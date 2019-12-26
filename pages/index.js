@@ -1,6 +1,7 @@
 import React from 'react';
 import {NextSeo} from 'next-seo';
 import DataStore from '../lib/data_store';
+import TrackingService from '../lib/TrackingService';
 
 import StationList from '../components/StationList';
 import PageLayout from '../components/PageLayout';
@@ -81,6 +82,10 @@ class Index extends React.Component {
 
       </PageLayout>
     );
+  }
+
+  componentDidMount(){
+    TrackingService.pageView();
   }
 
   componentWillMount(){
