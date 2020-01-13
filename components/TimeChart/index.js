@@ -97,13 +97,13 @@ class AdAside extends React.Component {
             //Add duration start
 
             outage_periods[station][outage_periods[station].length] = [
-              parseInt(moment(this_event.DateStamp).tz("America/New_York").format('H'))
+              parseInt(moment(this_event.DateStamp, "x").tz("America/New_York").format('H'))
             ];
           } else if ((this_event.StationStatus[station]) && (last_period.length == 1)){
             //End duration
 
             outage_periods[station][outage_periods[station].length - 1].push(
-              parseInt(moment(this_event.DateStamp).tz("America/New_York").format('H'))
+              parseInt(moment(this_event.DateStamp, "x").tz("America/New_York").format('H'))
             );
           }
 

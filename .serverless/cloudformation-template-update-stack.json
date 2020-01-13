@@ -158,7 +158,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/prtscanner-website/dev/1578895560101-2020-01-13T06:06:00.101Z/prtscanner-website.zip"
+          "S3Key": "serverless/prtscanner-website/dev/1578898193320-2020-01-13T06:49:53.320Z/prtscanner-website.zip"
         },
         "FunctionName": "prtscanner-website-dev-not-found",
         "Handler": "sls-next-build/_error.render",
@@ -177,14 +177,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "NotDashfoundLambdaVersionjPkgrI4AnMFd6wzQFVoyZofv95sSoKonVnvUOFfTk": {
+    "NotDashfoundLambdaVersion0BmszvMGylvQsZ8tWzsJqTjrnJVwrbIUMJUXN75tGI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "NotDashfoundLambdaFunction"
         },
-        "CodeSha256": "6gc4GmSpkcEuH8pTxMii1TJKh61XQ52JPBY1ZCJ34So="
+        "CodeSha256": "a5m+XS/Yem466t9Bn7sMdKHhgM3mZVKqFbQP71baqxU="
       }
     },
     "IndexLambdaFunction": {
@@ -194,7 +194,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/prtscanner-website/dev/1578895560101-2020-01-13T06:06:00.101Z/prtscanner-website.zip"
+          "S3Key": "serverless/prtscanner-website/dev/1578898193320-2020-01-13T06:49:53.320Z/prtscanner-website.zip"
         },
         "FunctionName": "prtscanner-website-dev-index",
         "Handler": "sls-next-build/index.render",
@@ -213,14 +213,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "IndexLambdaVersion6o7WilQTkumE4jNdoZIYNoP1D7l7uT3B2guDlOeI": {
+    "IndexLambdaVersionIsRvDSGUKW8ZC6RDLmhfaO3cYDSTSOQgu3vP70zQaM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "IndexLambdaFunction"
         },
-        "CodeSha256": "6gc4GmSpkcEuH8pTxMii1TJKh61XQ52JPBY1ZCJ34So="
+        "CodeSha256": "a5m+XS/Yem466t9Bn7sMdKHhgM3mZVKqFbQP71baqxU="
       }
     },
     "StationLambdaFunction": {
@@ -230,7 +230,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/prtscanner-website/dev/1578895560101-2020-01-13T06:06:00.101Z/prtscanner-website.zip"
+          "S3Key": "serverless/prtscanner-website/dev/1578898193320-2020-01-13T06:49:53.320Z/prtscanner-website.zip"
         },
         "FunctionName": "prtscanner-website-dev-station",
         "Handler": "sls-next-build/station.render",
@@ -249,14 +249,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "StationLambdaVersionAICHQ1A3cWvBCwiQtNPFBBpxh7Q3a6vDngXhYq6d0o": {
+    "StationLambdaVersionw199PypTk6aP65HZs2N9hKM9aariBHLecdscXgtjI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "StationLambdaFunction"
         },
-        "CodeSha256": "6gc4GmSpkcEuH8pTxMii1TJKh61XQ52JPBY1ZCJ34So="
+        "CodeSha256": "a5m+XS/Yem466t9Bn7sMdKHhgM3mZVKqFbQP71baqxU="
       }
     },
     "ApiGatewayRestApi": {
@@ -580,7 +580,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1578895493681": {
+    "ApiGatewayDeployment1578898120821": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -893,19 +893,19 @@
     "NotDashfoundLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "NotDashfoundLambdaVersionjPkgrI4AnMFd6wzQFVoyZofv95sSoKonVnvUOFfTk"
+        "Ref": "NotDashfoundLambdaVersion0BmszvMGylvQsZ8tWzsJqTjrnJVwrbIUMJUXN75tGI"
       }
     },
     "IndexLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "IndexLambdaVersion6o7WilQTkumE4jNdoZIYNoP1D7l7uT3B2guDlOeI"
+        "Ref": "IndexLambdaVersionIsRvDSGUKW8ZC6RDLmhfaO3cYDSTSOQgu3vP70zQaM"
       }
     },
     "StationLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "StationLambdaVersionAICHQ1A3cWvBCwiQtNPFBBpxh7Q3a6vDngXhYq6d0o"
+        "Ref": "StationLambdaVersionw199PypTk6aP65HZs2N9hKM9aariBHLecdscXgtjI"
       }
     },
     "ServiceEndpoint": {
