@@ -5,10 +5,9 @@ class DocumentTemplate extends Document {
 
   render () {
     return (
-      <html>
+      <html lang="en">
         <Head>
-          <script src='https://www.google.com/recaptcha/api.js'></script>
-
+          <link rel="dns-prefetch" href="https://cdn.prtscanner.com"/>
           <link rel="apple-touch-icon" sizes="180x180" href={`${STATIC_PATH}/FavIcon/apple-touch-icon.png`}/>
           <link rel="icon" type="image/png" sizes="32x32" href={`${STATIC_PATH}/FavIcon/favicon-32x32.png`}/>
           <link rel="icon" type="image/png" sizes="16x16" href={`${STATIC_PATH}/FavIcon/favicon-16x16.png`}/>

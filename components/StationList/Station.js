@@ -17,8 +17,8 @@ class Station extends React.Component {
     let last_outage_text = "No outages today";
 
 
-    if (this.props.prtData.length > 1){
-      if (this.props.prtData[0].DataPoints.length > 1){
+    if (this.props.prtData.length > 0){
+      if (this.props.prtData[0].DataPoints.length > 0){
 
         if (this.props.prtData[0].DataPoints[0].IsClosed == true){
           state = "closed";
@@ -43,8 +43,8 @@ class Station extends React.Component {
       }
     }
 
-    if (this.props.prtData.length > 1){
-      if (this.props.prtData[0].DataPoints.length > 1){
+    if (this.props.prtData.length > 0){
+      if (this.props.prtData[0].DataPoints.length > 0){
 
         let last_outage = -1;
 
@@ -75,7 +75,7 @@ class Station extends React.Component {
           if (state == "down"){
             last_outage_text = "This station went down " + last_outage_text;
           } else {
-            last_outage_text = "Last outage happened " + last_outage_text;
+            last_outage_text = "The last outage occurred " + last_outage_text;
           }
 
         } else {

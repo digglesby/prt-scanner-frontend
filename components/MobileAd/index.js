@@ -2,6 +2,7 @@ import React from 'react';
 import TrackingService from '../../lib/TrackingService';
 
 import STATIC_PATH from '../../STATIC_PATH.js';
+import CONFIG from '../../lib/config.js';
 
 class AdAside extends React.Component {
 
@@ -18,6 +19,8 @@ class AdAside extends React.Component {
   }
 
   render(){
+
+    if (!CONFIG.ads) return null;
 
     return (
       <div className="mobile-promo">

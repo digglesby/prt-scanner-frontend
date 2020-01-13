@@ -75,8 +75,8 @@ class Station extends React.Component {
     let station_name = (this.props.id == "HSC") ? "Health Sciences" : this.props.id;
     let station_status = "closed";
 
-    if (this.props.prtData.length > 1){
-      if (this.props.prtData[0].DataPoints.length > 1){
+    if (this.props.prtData.length > 0){
+      if (this.props.prtData[0].DataPoints.length > 0){
 
         if (this.props.prtData[0].DataPoints[0].IsClosed == true){
           station_status = "closed";

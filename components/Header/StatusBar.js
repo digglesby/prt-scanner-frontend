@@ -11,8 +11,8 @@ class StatusBar extends React.Component {
 
     let bar = <h2 className="header-bar closed">The PRT is closed!</h2>;
 
-    if (this.props.prtData.length > 1){
-      if (this.props.prtData[0].DataPoints.length > 1){
+    if (this.props.prtData.length > 0){
+      if (this.props.prtData[0].DataPoints.length > 0){
 
         if (!this.props.prtData[0].DataPoints[0].IsClosed){
 
