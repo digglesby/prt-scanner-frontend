@@ -4,7 +4,7 @@ import ChartLegend from '../ChartLegend';
 import moment from 'moment-timezone';
 import TrackingService from '../../lib/TrackingService';
 
-import { ResponsiveCalendar } from '@nivo/calendar';
+import { ResponsiveCalendarCanvas } from '@nivo/calendar';
 
 class CalandarChart extends React.Component {
 
@@ -150,7 +150,8 @@ class CalandarChart extends React.Component {
 
         <div className="calandar-container">
           <div className='calandar-inner'>
-            <ResponsiveCalendar
+
+            <ResponsiveCalendarCanvas
               data={data.data}
               from={moment().tz("America/New_York").subtract(30, 'day').format('Y-M-D')}
               to={moment().tz("America/New_York").format('Y-M-D')}
@@ -176,6 +177,7 @@ class CalandarChart extends React.Component {
                   }
               ]}
             />
+
           </div>
         </div>
 

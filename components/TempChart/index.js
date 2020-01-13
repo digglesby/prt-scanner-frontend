@@ -3,7 +3,7 @@ import dataStore from '../../lib/data_store';
 import ChartLegend from '../ChartLegend';
 import TrackingService from '../../lib/TrackingService';
 
-import { ResponsiveLine } from '@nivo/line';
+import { ResponsiveLineCanvas } from '@nivo/line';
 
 class AdAside extends React.Component {
 
@@ -178,7 +178,7 @@ class AdAside extends React.Component {
 
         <div className="line-container">
           <div className='line-inner'>
-            <ResponsiveLine
+            <ResponsiveLineCanvas
               data={graph_data}
               margin={{ top: 30, right: 20, bottom: 30, left: 20 }}
               xScale={{ type: 'point' }}
@@ -207,7 +207,7 @@ class AdAside extends React.Component {
               enableGridY={false}
               enableArea={true}
               areaOpacity={0.25}
-              />
+            />
           </div>
         </div>
 

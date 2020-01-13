@@ -18,7 +18,7 @@ class DocumentTemplate extends Document {
           <meta name="msapplication-config" content={`${STATIC_PATH}/FavIcon/browserconfig.xml`}/>
           <meta name="theme-color" content="#ffffff"/>
 
-          <link rel='stylesheet' type='text/css' href={`${STATIC_PATH}/main.css`} />
+          <link rel='stylesheet' type='text/css' href={`/static/main.css`} />
           <meta name="google-site-verification" content="oCYauKaDXx_OyEAmxU8VyoQXQVubFt8CBtRXO8JLurw" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Head>

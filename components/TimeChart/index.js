@@ -4,7 +4,7 @@ import ChartLegend from '../ChartLegend';
 import moment from 'moment-timezone';
 import TrackingService from '../../lib/TrackingService';
 
-import { ResponsiveLine } from '@nivo/line';
+import { ResponsiveLineCanvas } from '@nivo/line';
 
 class AdAside extends React.Component {
 
@@ -209,7 +209,7 @@ class AdAside extends React.Component {
 
         <div className="line-container">
           <div className='line-inner'>
-            <ResponsiveLine
+            <ResponsiveLineCanvas
               data={graph_data}
               margin={{ top: 30, right: 20, bottom: 30, left: 20 }}
               xScale={{ type: 'point' }}

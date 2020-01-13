@@ -3,7 +3,7 @@ import dataStore from '../../lib/data_store';
 import ChartLegend from '../ChartLegend';
 import TrackingService from '../../lib/TrackingService';
 
-import { ResponsivePie } from '@nivo/pie';
+import { ResponsivePieCanvas } from '@nivo/pie';
 
 class AdAside extends React.Component {
 
@@ -36,7 +36,7 @@ class AdAside extends React.Component {
       station:(new_focus == null) ? 'all' : new_focus
     });
   }
-  
+
   getColor(id){
       const colors = {
         "clear":"#a3adbf",
@@ -145,8 +145,9 @@ class AdAside extends React.Component {
 
     if (graph_data.length > 0){
       chart = (
-        <ResponsivePie
+        <ResponsivePieCanvas
           data={data}
+          pixelRatio={1}
           margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
           sortByValue={false}
           innerRadius={0.65}
