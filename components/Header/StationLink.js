@@ -13,6 +13,8 @@ class StationLink extends React.Component {
     let state = "closed";
     let alert = null;
 
+    console.log(this.props.prtData);
+
     if (this.props.prtData.length > 0){
       if (this.props.prtData[0].DataPoints.length > 0){
 
